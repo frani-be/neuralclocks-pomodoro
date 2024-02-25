@@ -6,6 +6,7 @@ export const useTimerSettings = () => useContext(TimerSettingsContext)
 
 export const TimerSettingsProvider = ({ children }) => {
     const [isActive, setIsActive] = useState(false)
+    const [hasStarted, setHasStarted] = useState(false)
     const defaultSettings = {
         workMinutes: 25,
         shortBreakMinutes: 5,
@@ -27,7 +28,7 @@ export const TimerSettingsProvider = ({ children }) => {
     }
 
     return (
-        <TimerSettingsContext.Provider value={{ settings, updateSettings, resetToDefaultSettings, isActive, setIsActive }}>
+        <TimerSettingsContext.Provider value={{ settings, updateSettings, resetToDefaultSettings, isActive, setIsActive, hasStarted, setHasStarted }}>
             {children}
         </TimerSettingsContext.Provider>
     )

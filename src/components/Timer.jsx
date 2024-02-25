@@ -3,7 +3,7 @@ import { useTimerSettings } from '../contexts/TimerSettingsContext'
 import ControlButton from './ControlButton'
 
 const Timer = () => {
-    const { settings } = useTimerSettings()
+    const { settings, isActive, setIsActive } = useTimerSettings()
 
     let workMinutes = settings.workMinutes * 60
     let shortBreakMinutes = settings.shortBreakMinutes * 60
@@ -11,7 +11,6 @@ const Timer = () => {
     let numberOfCycles = settings.numberOfCycles
 
     const [timeLeft, setTimeLeft] = useState(workMinutes)
-    const [isActive, setIsActive] = useState(false)
     const [cycle, setCycle] = useState('work')
     const [cyclesCompleted, setCyclesCompleted] = useState(0)
 

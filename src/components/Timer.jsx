@@ -90,8 +90,8 @@ const Timer = () => {
             <div>{formatTime()}</div>
             <h3>{cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')}</h3>
             <h4>Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
-            <ControlButton text={isActive ? 'Pause' : 'Play'} onClick={toggleTimer} />
-            <ControlButton text='Restart' onClick={restartTimer} />
+            <ControlButton text={isActive ? 'Pause' : 'Play'} onClick={toggleTimer} disabled={false} />
+            <ControlButton text='Restart' onClick={restartTimer} disabled={false} />
         </div>
     )
 }

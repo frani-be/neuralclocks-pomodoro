@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ControlButton = ({ text, onClick }) => {
+const ControlButton = ({ text, onClick, disabled }) => {
     return (
-        <button onClick={onClick}>
+        <button onClick={onClick} disabled={disabled}>
             {text}
         </button>
     )

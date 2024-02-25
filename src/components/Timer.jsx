@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { useTimerSettings } from '../contexts/TimerSettingsContext'
 import ControlButton from './ControlButton'
 
 const Timer = () => {
-    let workMinutes = 25 * 60
-    let shortBreakMinutes = 5 * 60
-    let longBreakMinutes = 15 * 60
-    let numberOfCycles = 4
+    const { settings } = useTimerSettings()
+
+    let workMinutes = settings.workMinutes * 60
+    let shortBreakMinutes = settings.shortBreakMinutes * 60
+    let longBreakMinutes = settings.longBreakMinutes * 60
+    let numberOfCycles = settings.numberOfCycles
 
     const [timeLeft, setTimeLeft] = useState(workMinutes)
     const [isActive, setIsActive] = useState(false)

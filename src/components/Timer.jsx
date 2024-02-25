@@ -31,6 +31,10 @@ const Timer = () => {
     useEffect(() => {
         let interval = null
 
+        if (!isActive) {
+            setTimeLeft(workMinutes)
+        }
+
         if (isActive && timeLeft > 0) {
             interval = setInterval(() => {
                 setTimeLeft((timeLeft) => timeLeft - 1)
@@ -39,8 +43,8 @@ const Timer = () => {
             clearInterval(interval)
         } else if (timeLeft === 0) {
             clearInterval(interval)
+            nextCycle()
             if (cyclesCompleted < numberOfCycles) {
-                nextCycle()
                 setIsActive(true)
             } else if (cyclesCompleted === numberOfCycles) {
                 resetTimer();
@@ -48,7 +52,7 @@ const Timer = () => {
         }
 
         return () => clearInterval(interval)
-    }, [isActive, timeLeft, cycle, cyclesCompleted])
+    }, [workMinutes, isActive, timeLeft, cycle, cyclesCompleted])
 
     const toggleTimer = () => {
         setIsActive(!isActive)

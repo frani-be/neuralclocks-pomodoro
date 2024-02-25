@@ -13,6 +13,7 @@ const Timer = () => {
     const [timeLeft, setTimeLeft] = useState(workMinutes)
     const [cycle, setCycle] = useState('work')
     const [cyclesCompleted, setCyclesCompleted] = useState(0)
+    const [hasStarted, setHasStarted] = useState(false)
 
     const nextCycle = () => {
         if (cycle === 'work') {
@@ -28,11 +29,16 @@ const Timer = () => {
     }
 
     useEffect(() => {
-        let interval = null
+
+        if (!isActive && hasStarted) {
+            return
+        }
 
         if (!isActive) {
             setTimeLeft(workMinutes)
         }
+
+        let interval = null
 
         if (isActive && timeLeft > 0) {
             interval = setInterval(() => {
@@ -54,12 +60,14 @@ const Timer = () => {
     }, [workMinutes, isActive, timeLeft, cycle, cyclesCompleted])
 
     const toggleTimer = () => {
+        setHasStarted(true)
         setIsActive(!isActive)
     }
 
     const resetTimer = () => {
         setTimeLeft(workMinutes)
         setIsActive(false)
+        setHasStarted(false)
         setCycle('work')
         setCyclesCompleted(0)
     }

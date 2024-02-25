@@ -5,7 +5,7 @@ const RangeInput = ({ label, value, onChange, disabled }) => {
         <div>
             <label>
                 {label}: {value} minutes
-                <input type="range" min="1" max="60" value={value} onChange={(e) => onChange(e.target.value)} disabled={disabled} className="form-range" />
+                <input type="range" min="1" max="60" value={value} onChange={(e) => onChange(e.target.value)} disabled={disabled} className="form-range" aria-label={label} />
             </label>
         </div>
     )

@@ -5,7 +5,7 @@ const NumberInput = ({ label, value, onChange, disabled }) => {
         <div>
             <label>
                 {label}:
-                <input type="number" min="1" max="10" value={value} onChange={(e) => onChange(e.target.value)} disabled={disabled} className="form-control" />
+                <input type="number" min="1" max="10" value={value} onChange={(e) => onChange(e.target.value)} disabled={disabled} className="form-control" aria-label={label} />
             </label>
         </div>
     )

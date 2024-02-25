@@ -5,7 +5,7 @@ const CircularProgress = ({ size, progress }) => {
   const strokeDashoffset = strokeDasharray + (strokeDasharray * progress) / 100;
 
   return (
-    <svg width={size} height={size} viewBox="0 0 120 120">
+    <svg width={size} height={size} viewBox="0 0 120 120" role="timer">
       <circle
         cx="60"
         cy="60"

@@ -1,10 +1,10 @@
 import React from 'react'
 
-const ControlButton = ({ text, onClick, disabled, buttonType }) => {
+const ControlButton = ({ text, onClick, disabled, buttonType, label }) => {
     const buttonClass = `btn btn-${buttonType}`
 
     return (
-        <button onClick={onClick} disabled={disabled} className={buttonClass}>
+        <button onClick={onClick} disabled={disabled} className={buttonClass} aria-label={label}>
             {text}
         </button>
     )

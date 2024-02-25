@@ -9,12 +9,15 @@ const Timer = () => {
     useEffect(() => {
         let interval = null
 
-        if (isActive) {
+        if (isActive && timeLeft > 0) {
             interval = setInterval(() => {
                 setTimeLeft((timeLeft) => timeLeft - 1)
             }, 1000)
-        } else if (!isActive && timeLeft !== 0) {
+        } else if (!isActive && timeLeft > 0) {
             clearInterval(interval)
+        } else if (timeLeft === 0) {
+            clearInterval(interval)
+            resetTimer()
         }
 
         return () => clearInterval(interval)

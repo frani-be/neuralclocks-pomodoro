@@ -35,7 +35,7 @@ const Timer = () => {
         if (cyclesCompleted < numberOfCycles) {
             setIsActive(true)
         } else {
-            resetTimer()
+            restartTimer()
         }
     }
 
@@ -70,7 +70,7 @@ const Timer = () => {
         setIsActive(!isActive)
     }
 
-    const resetTimer = () => {
+    const restartTimer = () => {
         setTimeLeft(workMinutes)
         setIsActive(false)
         setHasStarted(false)
@@ -91,7 +91,7 @@ const Timer = () => {
             <h3>{cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')}</h3>
             <h4>Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
             <ControlButton text={isActive ? 'Pause' : 'Play'} onClick={toggleTimer} />
-            <ControlButton text='Reset' onClick={resetTimer} />
+            <ControlButton text='Restart' onClick={restartTimer} />
         </div>
     )
 }

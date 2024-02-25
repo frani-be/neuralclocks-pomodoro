@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import ControlButton from './ControlButton'
 
 const Timer = () => {
     let workminutes = 25
@@ -42,10 +43,8 @@ const Timer = () => {
         <div>
             <h2>Timer</h2>
             <div>{formatTime()}</div>
-            <button onClick={toggleTimer}>
-                {isActive ? 'Pause' : 'Start'}
-            </button>
-            <button onClick={resetTimer}>Reset</button>
+            <ControlButton text={isActive ? 'Pause' : 'Play'} onClick={toggleTimer} />
+            <ControlButton text='Reset' onClick={resetTimer} />
         </div>
     )
 }

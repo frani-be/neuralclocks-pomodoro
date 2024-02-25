@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTimerSettings } from '../contexts/TimerSettingsContext'
 import ControlButton from './ControlButton'
+import CircularProgress from './CircularProgress'
 
 const Timer = () => {
     const { settings, isActive, setIsActive, hasStarted, setHasStarted } = useTimerSettings()
@@ -13,6 +14,9 @@ const Timer = () => {
     const [timeLeft, setTimeLeft] = useState(workMinutes)
     const [cycle, setCycle] = useState('work')
     const [cyclesCompleted, setCyclesCompleted] = useState(0)
+
+    const totalTime = cycle === 'work' ? workMinutes : cycle === 'shortBreak' ? shortBreakMinutes : longBreakMinutes;
+    const progress = (timeLeft / totalTime) * 100;
 
     const nextCycle = () => {
         if (cycle === 'work') {
@@ -89,6 +93,7 @@ const Timer = () => {
     return (
         <div>
             <h2>Timer</h2>
+            <CircularProgress size={200} progress={progress} />
             <div>{formatTime()}</div>
             <h3>{cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')}</h3>
             <h4>Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>

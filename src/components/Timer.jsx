@@ -2,10 +2,28 @@ import React, { useState, useEffect } from 'react'
 import ControlButton from './ControlButton'
 
 const Timer = () => {
-    let workminutes = 25
-    const [timeLeft, setTimeLeft] = useState(workminutes * 60)
+    let workMinutes = 25 * 60
+    let shortBreakMinutes = 5 * 60
+    let longBreakMinutes = 15 * 60
+    let numberOfCycles = 4
 
+    const [timeLeft, setTimeLeft] = useState(workMinutes)
     const [isActive, setIsActive] = useState(false)
+    const [cycle, setCycle] = useState('work')
+    const [cyclesCompleted, setCyclesCompleted] = useState(0)
+
+    const nextCycle = () => {
+        if (cycle === 'work') {
+            const newCyclesCompleted = cyclesCompleted + 1
+            setCyclesCompleted(newCyclesCompleted)
+            const isLongBreak = newCyclesCompleted % numberOfCycles === 0
+            setCycle(isLongBreak ? 'longBreak' : 'shortBreak')
+            setTimeLeft(isLongBreak ? longBreakMinutes : shortBreakMinutes)
+        } else {
+            setCycle('work')
+            setTimeLeft(workMinutes)
+        }
+    }
 
     useEffect(() => {
         let interval = null
@@ -18,19 +36,26 @@ const Timer = () => {
             clearInterval(interval)
         } else if (timeLeft === 0) {
             clearInterval(interval)
-            resetTimer()
+            if (cyclesCompleted < numberOfCycles) {
+                nextCycle()
+                setIsActive(true)
+            } else if (cyclesCompleted === numberOfCycles) {
+                resetTimer();
+            }
         }
 
         return () => clearInterval(interval)
-    }, [isActive, timeLeft])
+    }, [isActive, timeLeft, cycle, cyclesCompleted])
 
     const toggleTimer = () => {
         setIsActive(!isActive)
     }
 
     const resetTimer = () => {
-        setTimeLeft(workminutes * 60)
+        setTimeLeft(workMinutes)
         setIsActive(false)
+        setCycle('work')
+        setCyclesCompleted(0)
     }
 
     const formatTime = () => {
@@ -43,6 +68,8 @@ const Timer = () => {
         <div>
             <h2>Timer</h2>
             <div>{formatTime()}</div>
+            <h3>{cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')}</h3>
+            <h4>Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
             <ControlButton text={isActive ? 'Pause' : 'Play'} onClick={toggleTimer} />
             <ControlButton text='Reset' onClick={resetTimer} />
         </div>

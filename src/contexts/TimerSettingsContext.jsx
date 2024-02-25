@@ -11,7 +11,8 @@ export const TimerSettingsProvider = ({ children }) => {
         workMinutes: 25,
         shortBreakMinutes: 5,
         longBreakMinutes: 15,
-        numberOfCycles: 4
+        numberOfCycles: 4,
+        autoplay: true
     }
 
     const [settings, setSettings] = useState(defaultSettings)

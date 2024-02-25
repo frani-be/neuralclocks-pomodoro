@@ -21,7 +21,6 @@ const Timer = () => {
             if (newCyclesCompleted % numberOfCycles === 0) {
                 setCycle('longBreak')
                 setTimeLeft(longBreakMinutes)
-                return 
             } else {
                 setCycle('shortBreak')
                 setTimeLeft(shortBreakMinutes)
@@ -32,7 +31,11 @@ const Timer = () => {
         }
     
         if (cyclesCompleted < numberOfCycles) {
-            setIsActive(true)
+            if (settings.autoplay) {
+                setIsActive(true)
+            } else {
+                setIsActive(!isActive)
+            }
         } else {
             restartTimer()
         }

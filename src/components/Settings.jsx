@@ -14,7 +14,7 @@ const Settings = () => {
     
     return (
         <div>
-            <ControlButton text="Reset to Defaults" onClick={resetToDefaultSettings} disabled={hasStarted} />
+            <ControlButton text="Reset to Defaults" onClick={resetToDefaultSettings} disabled={hasStarted} buttonType="secondary" />
             <RangeInput label="Work Duration" value={settings.workMinutes} onChange={(value) => updateSettings('workMinutes', value)} disabled={hasStarted} />
             <RangeInput label="Short Break Duration" value={settings.shortBreakMinutes} onChange={(value) => updateSettings('shortBreakMinutes', value)} disabled={hasStarted} />
             <RangeInput label="Long Break Duration" value={settings.longBreakMinutes} onChange={(value) => updateSettings('longBreakMinutes', value)} disabled={hasStarted} />

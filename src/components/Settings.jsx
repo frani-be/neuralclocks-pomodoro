@@ -20,7 +20,7 @@ const Settings = () => {
             <RangeInput label="Short Break Duration" value={settings.shortBreakMinutes} onChange={(value) => updateSettings('shortBreakMinutes', value)} disabled={hasStarted} />
             <RangeInput label="Long Break Duration" value={settings.longBreakMinutes} onChange={(value) => updateSettings('longBreakMinutes', value)} disabled={hasStarted} />
             <NumberInput label="Number of Cycles" value={settings.numberOfCycles} onChange={(value) => updateSettings('numberOfCycles', value)} disabled={hasStarted} />
-            <Checkbox label="Autoplay on Cycle End" checked={settings.autoplay} onChange={handleAutoplayChange} disabled={hasStarted} />
+            <Checkbox label="Autoplay at the end of each cycle" checked={settings.autoplay} onChange={handleAutoplayChange} disabled={hasStarted} />
         </>
     )
 }

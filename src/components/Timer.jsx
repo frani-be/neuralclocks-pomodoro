@@ -91,7 +91,7 @@ const Timer = () => {
     }
 
     return (
-        <div>
+        <>
             <h2>Timer</h2>
             <CircularProgress size={200} progress={progress} />
             <div>{formatTime()}</div>
@@ -99,7 +99,7 @@ const Timer = () => {
             <h4>Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
             <ControlButton text={isActive ? 'Pause' : 'Play'} onClick={toggleTimer} disabled={false} buttonType="primary" />
             <ControlButton text='Restart' onClick={restartTimer} disabled={false} buttonType="danger" />
-        </div>
+        </>
     )
 }
 

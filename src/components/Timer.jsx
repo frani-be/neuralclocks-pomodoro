@@ -19,12 +19,23 @@ const Timer = () => {
         if (cycle === 'work') {
             const newCyclesCompleted = cyclesCompleted + 1
             setCyclesCompleted(newCyclesCompleted)
-            const isLongBreak = newCyclesCompleted % numberOfCycles === 0
-            setCycle(isLongBreak ? 'longBreak' : 'shortBreak')
-            setTimeLeft(isLongBreak ? longBreakMinutes : shortBreakMinutes)
+            if (newCyclesCompleted % numberOfCycles === 0) {
+                setCycle('longBreak')
+                setTimeLeft(longBreakMinutes)
+                return 
+            } else {
+                setCycle('shortBreak')
+                setTimeLeft(shortBreakMinutes)
+            }     
         } else {
             setCycle('work')
             setTimeLeft(workMinutes)
+        }
+    
+        if (cyclesCompleted < numberOfCycles) {
+            setIsActive(true)
+        } else {
+            resetTimer()
         }
     }
 
@@ -49,15 +60,10 @@ const Timer = () => {
         } else if (timeLeft === 0) {
             clearInterval(interval)
             nextCycle()
-            if (cyclesCompleted < numberOfCycles) {
-                setIsActive(true)
-            } else if (cyclesCompleted === numberOfCycles) {
-                resetTimer();
-            }
         }
 
         return () => clearInterval(interval)
-    }, [workMinutes, isActive, timeLeft, cycle, cyclesCompleted])
+    }, [workMinutes, isActive, timeLeft])
 
     const toggleTimer = () => {
         setHasStarted(true)

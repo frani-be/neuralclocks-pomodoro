@@ -95,7 +95,7 @@ const Timer = () => {
             <h2>Timer</h2>
             <CircularProgress size={200} progress={progress} />
             <div>{formatTime()}</div>
-            <h3>{cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')}</h3>
+            <h3>{hasStarted === true ? (cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')) : "Ready to start"}</h3>
             <h4>Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
 
             <div className="d-flex justify-content-start gap-3">

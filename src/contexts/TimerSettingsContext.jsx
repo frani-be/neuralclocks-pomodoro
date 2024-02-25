@@ -22,10 +22,17 @@ export const TimerSettingsProvider = ({ children }) => {
     }
 
     const updateSettings = (key, value) => {
-        setSettings((prevSettings) => ({
-            ...prevSettings,
-            [key]: value
-        }))
+        setSettings((prevSettings) => {
+            const numericValue = Number(value)
+    
+            if (key === 'shortBreakMinutes' && numericValue > prevSettings.longBreakMinutes) {
+                return { ...prevSettings, [key]: prevSettings.longBreakMinutes }
+            } else if (key === 'longBreakMinutes' && numericValue < prevSettings.shortBreakMinutes) {
+                return { ...prevSettings, [key]: prevSettings.shortBreakMinutes }
+            }
+    
+            return { ...prevSettings, [key]: numericValue }
+        })
     }
 
     return (

@@ -14,11 +14,11 @@ function App() {
       </header>
       <TimerSettingsProvider>
         <main className="container">
-          <div className="row g-5">
-            <section className="col-12 col-md-6">
+          <div className="row g-5 align-items-start">
+            <section className="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-center py-3">
               <Timer />
             </section>
-            <section className="col-12 col-md-6">
+            <section className="col-12 col-lg-4 d-flex flex-column justify-content-start align-items-start bg-light py-3 px-4 rounded-4">
               <Settings />
             </section>
           </div>

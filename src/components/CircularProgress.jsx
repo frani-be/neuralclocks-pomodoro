@@ -11,8 +11,8 @@ const CircularProgress = ({ size, progress }) => {
         cy="60"
         r="50"
         fill="none"
-        stroke="#eee"
-        strokeWidth="7"
+        stroke="#e9ecef"
+        strokeWidth="4"
       />
       <circle
         cx="60"
@@ -20,7 +20,7 @@ const CircularProgress = ({ size, progress }) => {
         r="50"
         fill="none"
         className="progress-circle"
-        strokeWidth="7"
+        strokeWidth="4"
         transform="rotate(-90 60 60)"
         strokeDasharray={strokeDasharray}
         strokeDashoffset={strokeDashoffset}

@@ -109,11 +109,11 @@ const Timer = () => {
             <h2>Timer</h2>
 
             <div className="position-relative d-inline-block progress-default" id="progress">
-                <CircularProgress size={250} progress={progress} />
+                <CircularProgress size={300} progress={progress} />
                 <div className="position-absolute top-50 start-50 translate-middle fs-1 fw-bold mono-font">{formatTime()}</div>
             </div>  
-            <h3>{hasStarted === true ? (cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')) : "Ready to start"}</h3>
-            <h4>Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
+            <h3 className="mb-2">{hasStarted === true ? (cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')) : "Ready to start"}</h3>
+            <h4 className="mb-4">Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
 
             <div className="d-flex justify-content-start gap-3">
                 <ControlButton text={isActive ? 'Pause' : 'Play'} onClick={toggleTimer} disabled={false} buttonType="primary" label={isActive ? 'Pause timer' : 'Play timer'} />

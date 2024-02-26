@@ -11,6 +11,13 @@ $color-long-break: green;
 
 $browser-prefixes: '-webkit-slider', '-moz-range', '-ms-';
 
+$progress-types: (
+    "progress-default": transparent,
+    "progress-work": $color-work,
+    "progress-short-break": $color-short-break,
+    "progress-long-break": $color-long-break
+);
+
 .mono-font {
     font-family: "PT Mono", monospace;
     font-weight: 400;
@@ -43,4 +50,12 @@ $browser-prefixes: '-webkit-slider', '-moz-range', '-ms-';
 
 .range-long-break {
     @include thumb-style($color-long-break);
+}
+
+#progress {
+    @each $class, $color in $progress-types {
+        &.#{$class} svg .progress-circle {
+            stroke: $color;
+        }
+    }
 }

@@ -15,8 +15,16 @@ const Timer = () => {
     const [cycle, setCycle] = useState('work')
     const [cyclesCompleted, setCyclesCompleted] = useState(0)
 
-    const totalTime = cycle === 'work' ? workMinutes : cycle === 'shortBreak' ? shortBreakMinutes : longBreakMinutes;
-    const progress = (timeLeft / totalTime) * 100;
+    const totalTime = cycle === 'work' ? workMinutes : cycle === 'shortBreak' ? shortBreakMinutes : longBreakMinutes
+    const progress = (timeLeft / totalTime) * 100
+
+    const progressElement = document.getElementById('progress')
+    const updateProgressClass = (newClass) => {
+        const classesToRemove = ["progress-work", "progress-short-break", "progress-long-break", "progress-default"]
+        progressElement.classList.remove(...classesToRemove)
+        progressElement.classList.add(newClass)
+    }
+    
 
     const nextCycle = () => {
         if (cycle === 'work') {
@@ -25,13 +33,16 @@ const Timer = () => {
             if (newCyclesCompleted % numberOfCycles === 0) {
                 setCycle('longBreak')
                 setTimeLeft(longBreakMinutes)
+                updateProgressClass("progress-long-break")
             } else {
                 setCycle('shortBreak')
                 setTimeLeft(shortBreakMinutes)
+                updateProgressClass("progress-short-break")
             }     
         } else {
             setCycle('work')
             setTimeLeft(workMinutes)
+            updateProgressClass("progress-work")
         }
     
         if (cyclesCompleted < numberOfCycles) {
@@ -46,42 +57,45 @@ const Timer = () => {
     }
 
     useEffect(() => {
-
         if (!isActive && hasStarted) {
-            return
+            return;
         }
-
+    
         if (!isActive) {
-            setTimeLeft(workMinutes)
+            setTimeLeft(workMinutes);
         }
-
-        let interval = null
-
+    
+        let interval = null;
+    
         if (isActive && timeLeft > 0) {
+            if (!hasStarted) {
+                updateProgressClass("progress-work");
+                setHasStarted(true);
+            }
             interval = setInterval(() => {
-                setTimeLeft((timeLeft) => timeLeft - 1)
-            }, 1000)
+                setTimeLeft((timeLeft) => timeLeft - 1);
+            }, 1000);
         } else if (!isActive && timeLeft > 0) {
-            clearInterval(interval)
+            clearInterval(interval);
         } else if (timeLeft === 0) {
-            clearInterval(interval)
-            nextCycle()
+            clearInterval(interval);
+            nextCycle();
         }
-
-        return () => clearInterval(interval)
-    }, [workMinutes, isActive, timeLeft])
+    
+        return () => clearInterval(interval);
+    }, [workMinutes, isActive, timeLeft, hasStarted]);
 
     const toggleTimer = () => {
-        setHasStarted(true)
-        setIsActive(!isActive)
-    }
-
+        setIsActive(!isActive);
+    };
+    
     const restartTimer = () => {
         setTimeLeft(workMinutes)
         setIsActive(false)
         setHasStarted(false)
         setCycle('work')
         setCyclesCompleted(0)
+        updateProgressClass("progress-default")
     }
 
     const formatTime = () => {
@@ -94,7 +108,7 @@ const Timer = () => {
         <>
             <h2>Timer</h2>
 
-            <div className="position-relative d-inline-block">
+            <div className="position-relative d-inline-block progress-default" id="progress">
                 <CircularProgress size={250} progress={progress} />
                 <div className="position-absolute top-50 start-50 translate-middle fs-1 fw-bold mono-font">{formatTime()}</div>
             </div>  

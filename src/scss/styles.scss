@@ -5,17 +5,17 @@ $font-family-base: "Work Sans", sans-serif;
 
 @import "bootstrap/scss/bootstrap";
 
-.pt-mono-regular {
-    font-family: "PT Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-}
-
 $color-work: red;
 $color-short-break: yellow;
 $color-long-break: green;
 
 $browser-prefixes: '-webkit-slider', '-moz-range', '-ms-';
+
+.mono-font {
+    font-family: "PT Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
 
 @mixin thumb-style($color) {
     @each $browser in $browser-prefixes {

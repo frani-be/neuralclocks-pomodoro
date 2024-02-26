@@ -18,6 +18,25 @@ $progress-types: (
     "progress-long-break": $color-long-break
 );
 
+.form-range {
+    position: relative;
+}
+
+.form-range::-webkit-slider-runnable-track {
+    width: var(--track-fg-width, 100%);
+}
+
+.form-range::before {
+    content: '';
+    height: 8px;
+    width: var(--track-fg-width);
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    z-index: 0;
+    border-radius: 4px;
+}
+
 .mono-font {
     font-family: "PT Mono", monospace;
     font-weight: 400;
@@ -28,6 +47,9 @@ $progress-types: (
     @each $browser in $browser-prefixes {
         &::#{$browser}-thumb {
             background-color: $color;
+            position: relative;
+            z-index: 1;
+
             &:active {
                 background-color: tint-color($color, 70%);
             }
@@ -40,16 +62,36 @@ $progress-types: (
     }
 }
 
+@mixin range-style($color) {
+    @include thumb-style($color);
+
+    &::before {
+        background-color: $color;
+        transition: background-color 0.25s;
+    }
+
+    &:disabled {
+        &::before {
+            background-color: tint-color($secondary, 30%);
+        }
+
+        &::-webkit-slider-thumb {
+            background-color: tint-color($secondary, 30%);
+            opacity: 1;
+        }
+    }
+}
+
 .range-work {
-    @include thumb-style($color-work);
+    @include range-style($color-work);
 }
 
 .range-short-break {
-    @include thumb-style($color-short-break);
+    @include range-style($color-short-break);
 }
 
 .range-long-break {
-    @include thumb-style($color-long-break);
+    @include range-style($color-long-break);
 }
 
 #progress {

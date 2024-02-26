@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
 
 $font-family-base: "Work Sans", sans-serif;
 $body-bg: #fffcec;
@@ -42,12 +41,6 @@ $progress-types: (
     top: 8px;
     z-index: 0;
     border-radius: 4px;
-}
-
-.mono-font {
-    font-family: "PT Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
 }
 
 @mixin thumb-style($color) {

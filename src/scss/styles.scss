@@ -2,12 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
 
 $font-family-base: "Work Sans", sans-serif;
+$body-bg: #fffcec;
+$primary: #4e57a1;
+$danger: #a14e56;
+$body-color: #3a4178;
 
 @import "bootstrap/scss/bootstrap";
 
-$color-work: red;
-$color-short-break: yellow;
-$color-long-break: green;
+$color-work: #7aaff3;
+$color-short-break: #efa339;
+$color-long-break: #7f36b8;
 
 $browser-prefixes: '-webkit-slider', '-moz-range', '-ms-';
 
@@ -98,6 +102,19 @@ $progress-types: (
     @each $class, $color in $progress-types {
         &.#{$class} svg .progress-circle {
             stroke: $color;
+            transition: stroke 1s;
         }
     }
+}
+
+.svg-shadow {
+    filter: drop-shadow(var(--bs-box-shadow));
+}
+
+.svg-shadow-sm {
+    filter: drop-shadow(var(--bs-box-shadow-sm));
+}
+
+.svg-shadow-lg {
+    filter: drop-shadow(var(--bs-box-shadow-lg));
 }

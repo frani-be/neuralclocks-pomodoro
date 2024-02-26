@@ -14,11 +14,11 @@ function App() {
       </header>
       <TimerSettingsProvider>
         <main className="container">
-          <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center align-items-lg-start gap-5 ">
+          <div className="d-flex flex-column flex-xl-row justify-content-center align-items-center align-items-xl-start gap-5 ">
             <section className="d-flex flex-column justify-content-center align-items-center py-3">
               <Timer />
             </section>
-            <section className="d-flex flex-column justify-content-start align-items-start bg-light py-3 px-4 rounded-4">
+            <section className="d-flex flex-column justify-content-start align-items-start bg-white shadow-sm pt-3 pb-4 px-4 rounded-4 col-xl-4 col-md-8 col-12">
               <Settings />
             </section>
           </div>

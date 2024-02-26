@@ -4,9 +4,43 @@
 $font-family-base: "Work Sans", sans-serif;
 
 @import "bootstrap/scss/bootstrap";
+
 .pt-mono-regular {
     font-family: "PT Mono", monospace;
     font-weight: 400;
     font-style: normal;
 }
 
+$color-work: red;
+$color-short-break: yellow;
+$color-long-break: green;
+
+$browser-prefixes: '-webkit-slider', '-moz-range', '-ms-';
+
+@mixin thumb-style($color) {
+    @each $browser in $browser-prefixes {
+        &::#{$browser}-thumb {
+            background-color: $color;
+            &:active {
+                background-color: tint-color($color, 70%);
+            }
+        }
+
+        &:focus::#{$browser}-thumb {
+            outline: 1px solid white;
+            box-shadow: 0 0 0 5px tint-color($color, 70%);
+        }
+    }
+}
+
+.range-work {
+    @include thumb-style($color-work);
+}
+
+.range-short-break {
+    @include thumb-style($color-short-break);
+}
+
+.range-long-break {
+    @include thumb-style($color-long-break);
+}

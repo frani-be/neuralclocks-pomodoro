@@ -15,9 +15,9 @@ const Settings = () => {
     return (
         <>
             <h2>Settings</h2>
-            <RangeInput label="Work Duration" value={settings.workMinutes} onChange={(value) => updateSettings('workMinutes', value)} disabled={hasStarted} />
-            <RangeInput label="Short Break Duration" value={settings.shortBreakMinutes} onChange={(value) => updateSettings('shortBreakMinutes', value)} disabled={hasStarted} />
-            <RangeInput label="Long Break Duration" value={settings.longBreakMinutes} onChange={(value) => updateSettings('longBreakMinutes', value)} disabled={hasStarted} />
+            <RangeInput label="Work Duration" value={settings.workMinutes} onChange={(value) => updateSettings('workMinutes', value)} disabled={hasStarted} inputFor="work" />
+            <RangeInput label="Short Break Duration" value={settings.shortBreakMinutes} onChange={(value) => updateSettings('shortBreakMinutes', value)} disabled={hasStarted} inputFor="short-break" />
+            <RangeInput label="Long Break Duration" value={settings.longBreakMinutes} onChange={(value) => updateSettings('longBreakMinutes', value)} disabled={hasStarted} inputFor="long-break" />
             <NumberInput label="Number of Cycles" value={settings.numberOfCycles} onChange={(value) => updateSettings('numberOfCycles', value)} disabled={hasStarted} />
             <Checkbox label="Autoplay at the end of each cycle" checked={settings.autoplay} onChange={handleAutoplayChange} disabled={hasStarted} />
             <ControlButton text="Reset to Defaults" onClick={resetToDefaultSettings} disabled={hasStarted} buttonType="secondary" label="Reset settings to default" />

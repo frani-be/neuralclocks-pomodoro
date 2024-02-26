@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useTimerSettings } from '../contexts/TimerSettingsContext'
 import ControlButton from './ControlButton'
 import CircularProgress from './CircularProgress'
+import soundFile from '../assets/click.mp3'
 
 const Timer = () => {
     const { settings, isActive, setIsActive, hasStarted, setHasStarted } = useTimerSettings()
@@ -58,36 +59,38 @@ const Timer = () => {
 
     useEffect(() => {
         if (!isActive && hasStarted) {
-            return;
+            return
         }
     
         if (!isActive) {
-            setTimeLeft(workMinutes);
+            setTimeLeft(workMinutes)
         }
     
-        let interval = null;
+        let interval = null
     
         if (isActive && timeLeft > 0) {
             if (!hasStarted) {
-                updateProgressClass("progress-work");
-                setHasStarted(true);
+                updateProgressClass("progress-work")
+                setHasStarted(true)
             }
             interval = setInterval(() => {
-                setTimeLeft((timeLeft) => timeLeft - 1);
-            }, 1000);
+                setTimeLeft((timeLeft) => timeLeft - 1)
+            }, 1000)
         } else if (!isActive && timeLeft > 0) {
-            clearInterval(interval);
+            clearInterval(interval)
         } else if (timeLeft === 0) {
-            clearInterval(interval);
-            nextCycle();
+            clearInterval(interval)
+            nextCycle()
+            const audio = new Audio(soundFile);
+            audio.play();
         }
     
-        return () => clearInterval(interval);
-    }, [workMinutes, isActive, timeLeft, hasStarted]);
+        return () => clearInterval(interval)
+    }, [workMinutes, isActive, timeLeft, hasStarted])
 
     const toggleTimer = () => {
-        setIsActive(!isActive);
-    };
+        setIsActive(!isActive)
+    }
     
     const restartTimer = () => {
         setTimeLeft(workMinutes)

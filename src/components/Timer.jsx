@@ -110,9 +110,12 @@ const Timer = () => {
 
             <div className="position-relative d-inline-block progress-default" id="progress">
                 <CircularProgress size={300} progress={progress} />
-                <div className="position-absolute top-50 start-50 translate-middle fs-1 fw-bold mono-font">{formatTime()}</div>
+                <div className="position-absolute top-50 start-50 translate-middle fw-bold text-center">
+                    <span className='fs-1 mono-font'>{formatTime()}</span>
+                    <h3 className="fs-5">{hasStarted === true ? (cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')) : "Ready to start"}</h3>
+                </div>
             </div>  
-            <h3 className="mb-2">{hasStarted === true ? (cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')) : "Ready to start"}</h3>
+            
             <h4 className="mb-4">Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
 
             <div className="d-flex justify-content-start gap-3">

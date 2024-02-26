@@ -3,15 +3,18 @@
 
 $font-family-base: "Work Sans", sans-serif;
 $body-bg: #fffcec;
-$primary: #4e57a1;
-$danger: #a14e56;
+$primary: #4753b0;
+$danger: #b3525c;
 $body-color: #3a4178;
+$secondary: #4f5580;
+$gray-200: #d9dbe7;
 
 @import "bootstrap/scss/bootstrap";
 
-$color-work: #7aaff3;
+$color-work: #5b95e0;
 $color-short-break: #efa339;
 $color-long-break: #7f36b8;
+$color-default: $body-color;
 
 $browser-prefixes: '-webkit-slider', '-moz-range', '-ms-';
 
@@ -104,6 +107,21 @@ $progress-types: (
             stroke: $color;
             transition: stroke 1s;
         }
+
+        &.#{$class} {
+            transition: color 1s;
+            @if $class == "progress-default" {
+                color: $body-color; 
+            } @else {
+                color: $color;
+            }
+        }
+    }
+}
+
+#progress {
+    & svg .progress-circle-static {
+        stroke: $gray-200;
     }
 }
 

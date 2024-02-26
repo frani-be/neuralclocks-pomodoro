@@ -10,8 +10,8 @@ const CircularProgress = ({ size, progress }) => {
         cx="60"
         cy="60"
         r="50"
-        fill="none"
-        stroke="#e9ecef"
+        fill="#fff"
+        className="progress-circle-static"
         strokeWidth="4"
       />
       <circle

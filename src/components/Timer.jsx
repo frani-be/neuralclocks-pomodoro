@@ -22,8 +22,8 @@ const Timer = () => {
     const progressElement = document.getElementById('progress')
     const updateProgressClass = (newClass) => {
         const classesToRemove = ["progress-work", "progress-short-break", "progress-long-break", "progress-default"]
-        progressElement.classList.remove(...classesToRemove)
-        progressElement.classList.add(newClass)
+        document.body.classList.remove(...classesToRemove)
+        document.body.classList.add(newClass)
     }
     
 
@@ -111,7 +111,7 @@ const Timer = () => {
         <>
             <h2>Timer</h2>
 
-            <div className="position-relative d-inline-block progress-default" id="progress">
+            <div className="position-relative d-inline-block" id="progress">
                 <CircularProgress size={300} progress={progress} />
                 <div className="position-absolute top-50 start-50 translate-middle text-center">
                     <span className='fs-1 font-monospace'>{formatTime()}</span>

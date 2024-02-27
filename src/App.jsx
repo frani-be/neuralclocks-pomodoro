@@ -15,10 +15,10 @@ function App() {
       <TimerSettingsProvider>
         <main className="container">
           <div className="d-flex flex-column flex-xl-row justify-content-center align-items-center align-items-xl-start gap-5 ">
-            <section className="d-flex flex-column justify-content-center align-items-center py-3">
+            <section id="timer" className="d-flex flex-column justify-content-center align-items-center py-3">
               <Timer />
             </section>
-            <section className="d-flex flex-column justify-content-start align-items-start bg-white shadow-sm pt-3 pb-4 px-4 rounded-4 col-xl-4 col-md-8 col-12">
+            <section id="settings" className="d-flex flex-column justify-content-start align-items-start bg-white shadow-sm pt-3 pb-4 px-4 rounded-4 col-xl-4 col-md-8 col-12 mb-5 mb-xl-0">
               <Settings />
             </section>
           </div>

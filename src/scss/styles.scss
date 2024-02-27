@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 $font-family-base: "Work Sans", sans-serif;
-$body-bg: #fffcec;
+$body-bg: #f5f5f5;
 $primary: #4753b0;
 $danger: #b3525c;
 $body-color: #3a4178;
@@ -11,18 +11,34 @@ $gray-200: #d9dbe7;
 @import "bootstrap/scss/bootstrap";
 
 $color-work: #5b95e0;
-$color-short-break: #efa339;
-$color-long-break: #7f36b8;
+$color-short-break: #9f5892;
+$color-long-break: #8068c1;
 $color-default: $body-color;
 
 $browser-prefixes: '-webkit-slider', '-moz-range', '-ms-';
 
 $progress-types: (
-    "progress-default": transparent,
-    "progress-work": $color-work,
-    "progress-short-break": $color-short-break,
-    "progress-long-break": $color-long-break
+    "progress-default": ("color": transparent,
+        "image": url('../assets/default.png'),
+        "font-color": $body-color ),
+    "progress-work": ("color": $color-work,
+        "image": url('../assets/work.jpeg'),
+        "font-color": $body-color ),
+    "progress-short-break": ("color": $color-short-break,
+        "image": url('../assets/short-break.jpeg'),
+        "font-color": $body-bg ),
+    "progress-long-break": ("color": $color-long-break,
+        "image": url('../assets/long-break.jpeg'),
+        "font-color": $body-bg )
 );
+
+body {
+    background: #fffcec no-repeat center / cover;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    transition: background-image 2s ease-in-out, color 1s ease-in-out;
+}
 
 .form-range {
     position: relative;
@@ -94,21 +110,34 @@ $progress-types: (
     @include range-style($color-long-break);
 }
 
-#progress {
-    @each $class, $color in $progress-types {
-        &.#{$class} svg .progress-circle {
-            stroke: $color;
-            transition: stroke 1s;
-        }
-
+body {
+    @each $class, $properties in $progress-types {
         &.#{$class} {
-            transition: color 1s;
-            @if $class == "progress-default" {
-                color: $body-color; 
-            } @else {
-                color: $color;
+            background-image: map-get($properties, "image");
+            color: map-get($properties, "font-color");
+
+            & #settings {
+                color: $body-color;
+            }
+
+            & #progress svg .progress-circle {
+                stroke: map-get($properties, "color");
+                transition: stroke 1s;
+            }
+
+            & #progress {
+                transition: color 1s;
+
+                @if $class =="progress-default" {
+                    color: $body-color;
+                }
+
+                @else {
+                    color: map-get($properties, "color");
+                }
             }
         }
+
     }
 }
 

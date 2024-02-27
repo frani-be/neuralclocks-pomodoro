@@ -25,9 +25,10 @@ Pomodoro Timer es una aplicación web diseñada para mejorar la productividad y 
 - **Cantidad de ciclos**: Elige cuántos ciclos de trabajo y descanso corto realizarás antes de un descanso largo, con un límite de 1 a 10 ciclos.
 - **Autoplay**: Activa el modo de reproducción automática para pasar al siguiente ciclo sin interacciones, o configúralo para manual si prefieres un mayor control.
 
-!!! warning "Bloqueo de configuraciones"
-    Una vez iniciado el temporizador, las configuraciones se bloquean hasta que se presione 'restart' o se finalicen todos los ciclos.
-
+<div style="background-color: #fff3cd; border-left: 6px solid #ffeeba; padding: 0.5rem; margin-bottom: 1rem;">
+  <strong>⚠️ Advertencia: Bloqueo de Configuraciones</strong>
+  <p>Una vez iniciado el temporizador, las configuraciones se bloquean hasta que se presione 'restart' o se finalicen todos los ciclos.</p>
+</div>
 
 ### Interfaz de usuario y experiencia
 

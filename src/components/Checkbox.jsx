@@ -1,3 +1,9 @@
+/**
+ * The Checkbox component is a React functional component that renders a checkbox input with a label,
+ * checked state, onChange event handler, and disabled attribute.
+ * @returns The `Checkbox` component is being returned. It is a functional component that renders a
+ * checkbox input with a label, using the props `label`, `checked`, `onChange`, and `disabled`.
+ */
 import React from 'react'
 
 const Checkbox = ({ label, checked, onChange, disabled }) => {

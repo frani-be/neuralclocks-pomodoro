@@ -1,3 +1,7 @@
+/**
+ * This code snippet is a JavaScript React application that is importing necessary modules and
+ * components to render a React application.
+ */
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'

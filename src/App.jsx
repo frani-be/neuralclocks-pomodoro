@@ -1,3 +1,6 @@
+/**
+ * App.jsx serves as the main component in a React application, structured for a Pomodoro timer. 
+ */
 import './App.css'
 import { TimerSettingsProvider } from './contexts/TimerSettingsContext'
 import Settings from './components/Settings'

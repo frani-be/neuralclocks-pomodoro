@@ -1,3 +1,10 @@
+/**
+ * The Settings component in a React application allows users to customize timer settings and reset
+ * them to default values.
+ * @returns The `Settings` component is being returned. It contains various input fields for setting
+ * timer durations, number of cycles, and autoplay option, along with a button to reset settings to
+ * default.
+ */
 import React from 'react'
 import { useTimerSettings } from '../contexts/TimerSettingsContext'
 import RangeInput from './RangeInput'

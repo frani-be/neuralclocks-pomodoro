@@ -1,3 +1,11 @@
+/**
+ * The `CircularProgress` component in React renders a circular progress indicator with customizable
+ * size and progress level.
+ * @returns The `CircularProgress` component is being returned, which is a circular progress indicator
+ * rendered using SVG elements. It consists of two circles, one static circle representing the
+ * background and another animated circle representing the progress. The progress of the animated
+ * circle is determined by the `progress` prop passed to the component.
+ */
 import React from 'react'
 
 const CircularProgress = ({ size, progress }) => {

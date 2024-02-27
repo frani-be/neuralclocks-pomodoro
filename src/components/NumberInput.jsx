@@ -1,29 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react'
 
-const NumberInput = ({ label, defaultValue=4, onChange, disabled }) => {
-    const [lastValidValue, setLastValidValue] = useState(defaultValue)
-
+const NumberInput = ({ label, value, onChange, disabled }) => {
+    
     const handleInputChange = (e) => {
-        const newValue = e.target.value
+        let newValue = parseInt(e.target.value, 10)
 
-        if (newValue === '') {
-            onChange(lastValidValue)
-            e.target.value = lastValidValue
-        } else {
-            const numericValue = parseInt(newValue, 10)
-            if (!isNaN(numericValue) && numericValue >= 1 && numericValue <= 10) {
-                onChange(numericValue)
-                setLastValidValue(numericValue)
-            } else {
-                e.target.value = lastValidValue
-            }
+        if (!isNaN(newValue)) {
+            newValue = Math.max(1, Math.min(newValue, 10))
+            onChange(newValue.toString())
         }
     }
+
+    const handleInputFocus = (e) => {
+        e.target.select()
+    }
+
     return (
         <div>
             <label>
                 {label}:
-                <input type="number" min="1" max="10" value={lastValidValue} onChange={handleInputChange} disabled={disabled} className="form-control" aria-label={label} />
+                <input type="number" min="1" max="10" value={value} onChange={handleInputChange} onFocus={handleInputFocus} disabled={disabled} className="form-control" aria-label={label}
+                />
             </label>
         </div>
     )

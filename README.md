@@ -26,7 +26,6 @@ Pomodoro Timer es una aplicación web diseñada para mejorar la productividad y 
 - **Autoplay**: Activa el modo de reproducción automática para pasar al siguiente ciclo sin interacciones, o configúralo para manual si prefieres un mayor control.
 
 !!! warning "Bloqueo de configuraciones"
-
     Una vez iniciado el temporizador, las configuraciones se bloquean hasta que se presione 'restart' o se finalicen todos los ciclos.
 
 
@@ -79,7 +78,7 @@ Abre tu navegador y visita `http://localhost:5173/neuralclocks-pomodoro/`.
 
 ## Enlace en producción
 
-Visita [Pomodoro Timer](https://frani-be.github.io/neuralclocks-pomodoro/) en producción, para experimentar la aplicación.
+Para experimentar la aplicación, visita [Pomodoro Timer](https://frani-be.github.io/neuralclocks-pomodoro/) en producción.
 
 ---
 

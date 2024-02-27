@@ -11,6 +11,7 @@
     - [Requisitos previos](#requisitos-previos)
     - [Pasos de instalación](#pasos-de-instalación)
   - [Enlace en producción](#enlace-en-producción)
+  - [Opciones de mejora](#opciones-de-mejora)
 
 ## Descripción
 
@@ -80,6 +81,15 @@ Abre tu navegador y visita `http://localhost:5173/neuralclocks-pomodoro/`.
 ## Enlace en producción
 
 Para experimentar la aplicación, visita [Pomodoro Timer](https://frani-be.github.io/neuralclocks-pomodoro/) en producción.
+
+
+## Opciones de mejora
+
+- **Mejoras en los Range Inputs:** Agregar etiquetas con valores mínimos y máximos, y permitir la entrada de valores mediante teclado.
+- **Sonidos Diferenciados por Tipo de Ciclo:** Implementar sonidos distintos para el final de cada tipo de ciclo.
+- **Añadir soporte multilingüe (en proceso).**
+- **Optimización de Bootstrap/Tailwind:** Evaluar y posiblemente migrar a Tailwind CSS para un rendimiento más eficiente y una personalización más flexible.
+- **Implementación de Cypress para Testing:** Desarrollar pruebas automatizadas con Cypress para garantizar la calidad y la estabilidad de la aplicación.
 
 ---
 

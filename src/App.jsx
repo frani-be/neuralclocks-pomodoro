@@ -7,9 +7,9 @@ function App() {
 
   return (
     <>
-      <header className="row mt-3 mb-5">
+      <header className="row">
         <div className="container">
-          <h1 className="text-center">Pomodoro Timer</h1>
+          <h1 className="text-center mt-4 mb-5">Pomodoro Timer</h1>
         </div>
       </header>
       <TimerSettingsProvider>

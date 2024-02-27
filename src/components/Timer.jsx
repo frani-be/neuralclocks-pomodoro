@@ -119,7 +119,7 @@ const Timer = () => {
                 </div>
             </div>  
             
-            <h4 className="mb-4">Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
+            <h4 className="my-3">Cycles: {cyclesCompleted + '/' + numberOfCycles}</h4>
 
             <div className="d-flex justify-content-start gap-3">
                 <ControlButton text={isActive ? 'Pause' : 'Play'} onClick={toggleTimer} disabled={false} buttonType="primary" label={isActive ? 'Pause timer' : 'Play timer'} />

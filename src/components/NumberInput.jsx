@@ -20,7 +20,7 @@ const NumberInput = ({ label, defaultValue=4, onChange, disabled }) => {
         }
     }
     return (
-        <div className="my-3">
+        <div>
             <label>
                 {label}:
                 <input type="number" min="1" max="10" value={lastValidValue} onChange={handleInputChange} disabled={disabled} className="form-control" aria-label={label} />

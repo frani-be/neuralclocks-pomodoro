@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
 const CircularProgress = ({ size, progress }) => {
-  const strokeDasharray = 2 * Math.PI * 50; // Longitud del círculo (r=50)
-  const strokeDashoffset = strokeDasharray + (strokeDasharray * progress) / 100;
+  const strokeDasharray = 2 * Math.PI * 58
+  const strokeDashoffset = strokeDasharray + (strokeDasharray * progress) / 100
 
   return (
     <svg width={size} height={size} viewBox="0 0 120 120" role="timer" className="svg-shadow-sm">
       <circle
         cx="60"
         cy="60"
-        r="50"
+        r="58"
         fill="#fff"
         className="progress-circle-static"
         strokeWidth="4"
@@ -17,7 +17,7 @@ const CircularProgress = ({ size, progress }) => {
       <circle
         cx="60"
         cy="60"
-        r="50"
+        r="58"
         fill="none"
         className="progress-circle"
         strokeWidth="4"
@@ -27,7 +27,7 @@ const CircularProgress = ({ size, progress }) => {
         strokeLinecap="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default CircularProgress;
+export default CircularProgress

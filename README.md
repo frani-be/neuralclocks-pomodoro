@@ -76,7 +76,7 @@ npm run dev
 
 4. Acceder a la Aplicación:
 
-Abre tu navegador y visita `http://localhost:5173/neuralclocks-pomodoro/`.
+Abre tu navegador y visita `http://localhost:[port]/neuralclocks-pomodoro/`.
 
 ## Enlace en producción
 

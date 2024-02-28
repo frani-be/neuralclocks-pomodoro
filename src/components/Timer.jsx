@@ -146,7 +146,7 @@ const Timer = () => {
             <div className="position-relative d-inline-block" id="progress">
                 <CircularProgress size={300} progress={progress} />
                 <div className="position-absolute top-50 start-50 translate-middle text-center">
-                    <span className='fs-1 font-monospace'>{formatTime()}</span>
+                    <span className='fs-1 font-monospace' data-test="timer-value">{formatTime()}</span>
                     <h3 className="fs-5">{hasStarted === true ? (cycle === 'work' ? 'Work Time' : (cycle === 'shortBreak' ? 'Short Break' : 'Long Break')) : "Ready to start"}</h3>
                 </div>
             </div>

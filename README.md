@@ -46,6 +46,7 @@ Pomodoro Timer es una aplicación web diseñada para mejorar la productividad y 
 
 - **Vite & ReactJS**: Utilizado para una experiencia de usuario fluida y un desarrollo eficiente.
 - **Bootstrap & Sass**: Para un diseño responsivo y personalizable.
+- **Cypress para Testing:** Para desarrollar pruebas automatizadas con Cypress y así garantizar la calidad y la estabilidad de la aplicación.
 
 ## Instalación y ejecución
 
@@ -89,7 +90,6 @@ Para experimentar la aplicación, visita [Pomodoro Timer](https://frani-be.githu
 - **Sonidos Diferenciados por Tipo de Ciclo:** Implementar sonidos distintos para el final de cada tipo de ciclo.
 - **Añadir soporte multilingüe (en proceso).**
 - **Optimización de Bootstrap/Tailwind:** Evaluar y posiblemente migrar a Tailwind CSS para un rendimiento más eficiente y una personalización más flexible.
-- **Implementación de Cypress para Testing:** Desarrollar pruebas automatizadas con Cypress para garantizar la calidad y la estabilidad de la aplicación.
 
 ---
 
